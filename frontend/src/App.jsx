@@ -90,13 +90,16 @@ function App() {
   }, [currentUser]);
 
   // ✅ NOW safe to conditionally render — all hooks are declared above
-  const handleLogin = (user) => setCurrentUser(user);
-  const handleLogout = () => {
-    localStorage.removeItem('hm_session');
-    setCurrentUser(null);
+  const handleNotificationAction = (roomId) => {
+    const room = rooms.find(r => r.id === roomId);
+    if (room) {
+      setHistoryRoom(room);
+      // Auto-select the last booking record to show "Customer Details"
+      if (room.history && room.history.length > 0) {
+        setHistoryInitialRecordId(room.history[room.history.length - 1].id);
+      }
+    }
   };
-
-  if (!currentUser) return <LoginPage onLogin={handleLogin} />;
 
   const showToast = (message, type = 'success', onClick = null) => {
     setToast({ show: true, message, type, onClick });
@@ -122,6 +125,7 @@ function App() {
 
   /* 🔔 Real-time Checkout Monitoring System */
   useEffect(() => {
+    if (!currentUser) return;
     const checkCheckouts = () => {
       const now = new Date();
       const currentHours = now.getHours();
@@ -157,7 +161,7 @@ function App() {
     const interval = setInterval(checkCheckouts, 60000);
     checkCheckouts();
     return () => clearInterval(interval);
-  }, [rooms]);
+  }, [rooms, currentUser]);
 
   const handleRoomClick = (room) => {
     if (room.status === 'available') {
@@ -271,16 +275,13 @@ function App() {
     showToast('Stay extended successfully', 'success');
   };
 
-  const handleNotificationAction = (roomId) => {
-    const room = rooms.find(r => r.id === roomId);
-    if (room) {
-      setHistoryRoom(room);
-      // Auto-select the last booking record to show "Customer Details"
-      if (room.history && room.history.length > 0) {
-        setHistoryInitialRecordId(room.history[room.history.length - 1].id);
-      }
-    }
+  const handleLogin = (user) => setCurrentUser(user);
+  const handleLogout = () => {
+    localStorage.removeItem('hm_session');
+    setCurrentUser(null);
   };
+
+  if (!currentUser) return <LoginPage onLogin={handleLogin} />;
 
   const renderContent = () => {
     switch (activeTab) {
