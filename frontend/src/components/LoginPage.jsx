@@ -75,8 +75,8 @@ const LoginPage = ({ onLogin }) => {
 
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '48px', zIndex: 1 }}>
-          <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'rgba(13,148,136,0.2)', border: '1.5px solid rgba(13,148,136,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-            <img src="/logo-s.png" alt="Logo" style={{ width: '38px', height: '38px', objectFit: 'contain' }} />
+          <div style={{ width: '56px', height: '56px', borderRadius: '16px', background: 'white', border: '1.5px solid #e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
+            <img src="/logo-s.png" alt="Logo" style={{ width: '42px', height: '42px', objectFit: 'contain' }} />
           </div>
           <div>
             <div style={{ fontSize: '18px', fontWeight: '900', color: 'white', letterSpacing: '0.04em' }}>HOTEL SHUBHA SAI</div>

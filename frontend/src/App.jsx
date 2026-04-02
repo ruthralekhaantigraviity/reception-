@@ -40,17 +40,7 @@ function App() {
     try { return JSON.parse(localStorage.getItem('hm_session') || 'null'); } catch { return null; }
   });
 
-  const handleLogin = (user) => setCurrentUser(user);
-
-  const handleLogout = () => {
-    localStorage.removeItem('hm_session');
-    setCurrentUser(null);
-  };
-
-  // 🔑 Show login page if not authenticated
-  if (!currentUser) return <LoginPage onLogin={handleLogin} />;
-  
-  // 💾 persistence logic
+  // 💾 Room persistence
   const [rooms, setRooms] = useState(() => {
     const saved = localStorage.getItem('hm_rooms');
     if (saved) {
@@ -78,7 +68,7 @@ function App() {
     { roomId: '8', type: 'urgent', message: 'VIP Room 316 check-out in 15 mins', time: Date.now() - 1800000 }
   ]);
 
-  // 💾 persistence effect
+  // 💾 Room persistence effect
   useEffect(() => {
     localStorage.setItem('hm_rooms', JSON.stringify(rooms));
   }, [rooms]);
@@ -93,10 +83,20 @@ function App() {
 
   // 🔔 Initial Demo Notification
   useEffect(() => {
+    if (!currentUser) return;
     setTimeout(() => {
       showToast('🚨 URGENT: Room 219 checkout due now!', 'urgent');
     }, 1500);
-  }, []);
+  }, [currentUser]);
+
+  // ✅ NOW safe to conditionally render — all hooks are declared above
+  const handleLogin = (user) => setCurrentUser(user);
+  const handleLogout = () => {
+    localStorage.removeItem('hm_session');
+    setCurrentUser(null);
+  };
+
+  if (!currentUser) return <LoginPage onLogin={handleLogin} />;
 
   const showToast = (message, type = 'success', onClick = null) => {
     setToast({ show: true, message, type, onClick });
