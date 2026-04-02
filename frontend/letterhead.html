@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Shubha Sai Letterhead</title>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brand-blue: #1e3a8a; /* Royal Blue from logo symbol */
+            --brand-teal: #065f46; /* Deep Emerald Green from logo text */
+            --text-dark: #1f2937;
+            --text-muted: #64748b;
+            --divider-line: #cbd5e1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            display: flex;
+            justify-content: center;
+            padding: 40px 0;
+        }
+
+        /* 📄 A4 Layout for Direct Print */
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            padding: 20mm;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.06);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* 🎨 Decorative Side Divider (Matching your Logo) */
+        .decor-left {
+            position: absolute;
+            left: 20mm;
+            top: 20mm;
+            width: 2px;
+            height: 60mm;
+            background: linear-gradient(to bottom, var(--brand-blue), var(--brand-teal), transparent);
+            border-radius: 2px;
+        }
+
+        /* 🖼️ Logo Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 50px;
+            padding-left: 10px;
+        }
+
+        .proprietor-section {
+            padding-top: 10px;
+        }
+
+        .proprietor-section .label { font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .proprietor-section .name { font-size: 16px; font-weight: 800; color: var(--brand-blue); margin-top: 2px; }
+        .proprietor-section .title { font-size: 12px; font-weight: 600; color: var(--text-muted); }
+
+        .logo-center {
+            text-align: center;
+            flex: 1;
+            padding-top: 10px;
+        }
+
+        /* Symbol Reconstruction */
+        .logo-symbol {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 12px;
+            display: block;
+        }
+
+        .hotel-name {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--brand-teal);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .tagline {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--brand-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        .reception-section {
+            text-align: right;
+            padding-top: 10px;
+        }
+
+        .reception-section .label { font-size: 10px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .reception-section .phone { font-size: 15px; font-weight: 800; color: var(--brand-teal); margin-top: 2px; }
+
+        /* 🖋️ Content Area */
+        .content-body {
+            flex: 1;
+            border-top: 1px solid #f1f5f9;
+            margin-top: 10px;
+        }
+
+        /* 📍 Footer Section */
+        .footer {
+            margin-top: auto;
+            padding-top: 30px;
+            border-top: 3px solid var(--brand-blue);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 25px;
+        }
+
+        .footer-box .label {
+            font-size: 10px;
+            font-weight: 900;
+            color: var(--brand-teal);
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-box .value {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .driver-info-bar {
+            background: linear-gradient(to right, var(--brand-blue), var(--brand-teal));
+            padding: 12px 25px;
+            border-radius: 12px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .driver-info-bar span:first-child { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; }
+        .driver-info-bar span:last-child { font-size: 14px; font-weight: 800; }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .a4-page { box-shadow: none; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-page">
+        <!-- 🎨 Sidebar Detail from Logo -->
+        <div class="decor-left"></div>
+
+        <!-- 🏢 Top Navigation Bar -->
+        <div class="header">
+            <div class="proprietor-section">
+                <div class="label">Proprietor</div>
+                <div class="name">R. Umesh Reddy</div>
+                <div class="title">Management Office</div>
+            </div>
+
+            <div class="logo-center">
+                <img src="public/logo-s.png" class="logo-symbol" alt="Hotel Logo" style="width: auto; height: 80px; margin-bottom: 20px;" />
+                <h1 class="hotel-name">Hotel Shubha Sai</h1>
+                <p class="tagline">Assuring you the best hospitality services</p>
+            </div>
+
+            <div class="reception-section">
+                <div class="label">Reception Desk</div>
+                <div class="phone">+91 99013 03998</div>
+            </div>
+        </div>
+
+        <!-- 🖋️ Main Letter Area -->
+        <div class="content-body">
+            <!-- Space for official text -->
+        </div>
+
+        <!-- 📍 Footer -->
+        <div class="footer">
+            <div class="footer-grid">
+                <div class="footer-box">
+                    <div class="label">Corporate Office</div>
+                    <div class="value">
+                        Plot No. 145/B4, 3rd Cross,<br>
+                        Behind Priyadarshini Petrol Bunk,<br>
+                        Bommasandra Industrial Area,<br>
+                        Hosur Main Road, Anekal Taluk,<br>
+                        Bangalore - 560 099.
+                    </div>
+                </div>
+                <div class="footer-box">
+                    <div class="label">Communication</div>
+                    <div class="value">
+                        <b>Phone:</b><br>
+                        080-27835533<br>
+                        080-27833001
+                    </div>
+                </div>
+                <div class="footer-box" style="text-align: right;">
+                    <div class="label">Contact Email</div>
+                    <div class="value">
+                        hotelshubhasai@gmail.com
+                    </div>
+                </div>
+            </div>
+
+            <!-- Driver Info Block -->
+            <div class="driver-info-bar">
+                <span>Driver Contact Availability</span>
+                <span>+91 98456 32369</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

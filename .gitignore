@@ -1,0 +1,14 @@
+# Frontend
+frontend/node_modules
+frontend/dist
+frontend/.vite
+
+# Backend
+backend/node_modules
+
+# General
+*.log
+*.txt
+.env
+.DS_Store
+Thumbs.db

@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --status-available: #f0fdf4;
+  --dot-available: #10b981;
+  --status-maintenance: #f4f4f5;
+  --dot-maintenance: #71717a;
+  --status-cleaned: #eff6ff;
+  --dot-cleaned: #3b82f6;
+  --status-resolved: #ecfdf5;
+  --dot-resolved: #10b981;
+  --status-checkout: #eff6ff;
+  --dot-checkout: #3b82f6;
+  --status-booked: #fff1f2;
+  --dot-booked: #ef4444;
+  --border-color: #e4e4e7;
+  
+  --sidebar-bg: #ffffff;
+  --bg-primary: #f5f7fa; 
+  --card-bg: #ffffff;
+  --secondary-bg: #f8fafc;
+  --text-dark: #2e2e2e;
+  --text-muted: #71717a;
+  --active-bg: #f5f7fa;
+
+  /* 🏨 Hotel Shubha Sai Brand Colors */
+  --brand-blue: #1e3a5f;
+  --brand-teal: #2ca6a4;
+  --brand-gradient: linear-gradient(135deg, #1e3a5f, #2ca6a4);
+
+  /* Button Themes */
+  --btn-success-bg: #ecfdf5;
+  --btn-success-text: #059669;
+  --btn-danger-bg: #fef2f2;
+  --btn-danger-text: #dc2626;
+}
+
+.dark-mode {
+  --status-available: rgba(44, 166, 164, 0.1);
+  --status-maintenance: rgba(113, 113, 122, 0.1);
+  --status-cleaned: rgba(59, 130, 246, 0.1);
+  --status-resolved: rgba(44, 166, 164, 0.1);
+  --status-checkout: rgba(59, 130, 246, 0.1);
+  --status-booked: rgba(239, 68, 68, 0.1);
+  --border-color: #1e293b;
+  
+  --sidebar-bg: #0f172a; 
+  --bg-primary: #020617;
+  --card-bg: #1e293b;
+  --secondary-bg: #0f172a;
+  --active-bg: #1e293b;
+  --text-dark: #f8fafc;
+  --text-muted: #94a3b8;
+
+  --btn-success-bg: rgba(16, 185, 129, 0.15);
+  --btn-success-text: #34d399;
+  --btn-danger-bg: rgba(239, 68, 68, 0.15);
+  --btn-danger-text: #f87171;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+}
+
+h1, h2, h3, h4, h5, h6, 
+.logo-text, 
+.header-title, 
+.header-user-name,
+.room-number,
+.nav-link span {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+#root {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* 🏢 Sidebar Styles */
+.sidebar {
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--active-bg);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding-left: 12px;
+}
+
+.logo-icon-wrapper {
+  background: var(--brand-gradient);
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+}
+
+.logo-text {
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: var(--brand-teal);
+  text-transform: uppercase;
+}
+
+.nav-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nav-link.active {
+  background: var(--active-bg);
+  color: var(--brand-teal);
+  box-shadow: 0 4px 12px rgba(13, 148, 136, 0.1);
+}
+
+.logout-section {
+  padding-top: 24px;
+  border-top: 1px solid var(--active-bg);
+}
+
+/* 🏢 Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* 🏢 Main Header Styles (New Design) */
+.main-header {
+  margin-bottom: 32px;
+}
+
+.header-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header-top-left, .header-top-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-close-btn, .header-theme-toggle, .header-notif-btn {
+  background: transparent;
+  border: none;
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.header-close-btn:hover, .header-theme-toggle:hover, .header-notif-btn:hover {
+  background: var(--active-bg);
+}
+
+.header-notif-wrapper {
+  position: relative;
+}
+
+.header-notif-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: #ef4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-primary);
+}
+
+.header-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 16px;
+}
+
+.header-user-info {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.header-user-name {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.header-user-role {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fbbf24; /* Yellow from image */
+  color: #18181b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 18px;
+  box-shadow: 0 4px 10px rgba(251, 191, 36, 0.3);
+}
+
+.header-hero {
+  padding-top: 8px;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.header-description {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+
+
+.dark-mode .header-notif-badge {
+  border-color: var(--bg-primary);
+}
+
+.dark-mode .header-avatar {
+  background: #fbbf24;
+  color: #020617;
+}
+
+
+/* 🏢 Room Grid & Cards */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.room-card {
+  padding: 16px;
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.room-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.1);
+  border-color: var(--brand-teal);
+}
+
+.status-indicator {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 8px currentColor;
+}
+
+.room-type-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  opacity: 0.6;
+}
+
+.room-number-wrapper {
+  text-align: center;
+  margin: 8px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.room-number { 
+  font-size: 32px; 
+  font-weight: 900; 
+  line-height: 1;
+  color: var(--text-dark);
+}
+
+.no-label { 
+  font-size: 11px; 
+  font-weight: 800; 
+  color: var(--text-muted); 
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.history-label {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--brand-teal);
+  letter-spacing: 1px;
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+.room-category { 
+  font-weight: 700; 
+  font-size: 13px; 
+  color: var(--text-muted); 
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.amenities-icons { 
+  display: flex; 
+  gap: 10px; 
+  margin-bottom: 20px; 
+  color: var(--brand-blue);
+  opacity: 0.5;
+}
+
+.availability-pill {
+  background: white;
+  padding: 6px 18px;
+  border-radius: 100px;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+/* 🏢 Modals */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+}
+
+/* 🎨 Custom Scrollbar (Sliderbar) */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #e4e4e7;
+  border-radius: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #d1d1d6;
+}
+
+.dark-mode .modal-content { background: var(--sidebar-bg); }
+
+.form-label { display: block; font-size: 12px; font-weight: 800; color: var(--text-muted); margin-bottom: 4px; }
+.form-input { 
+  width: 100%; padding: 14px; border-radius: 16px; background: var(--secondary-bg); border: 1px solid var(--border-color);
+  font-weight: 700; margin-bottom: 20px; color: var(--text-dark);
+  transition: all 0.2s;
+}
+.form-input:focus {
+  outline: none;
+  border-color: var(--brand-teal);
+  background: var(--card-bg);
+}
+.form-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.6;
+}
+.dark-mode .form-input { background: var(--active-bg); }
+
+/* 🔔 Notifications & Alerts */
+@keyframes slideIn {
+  from { transform: translateX(100%) translateY(20px); opacity: 0; }
+  to { transform: translateX(0) translateY(0); opacity: 1; }
+}
+
+@keyframes pulse-urgent {
+  0% { transform: scale(1); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2); }
+  50% { transform: scale(1.02); box-shadow: 0 10px 40px rgba(239, 68, 68, 0.4); }
+  100% { transform: scale(1); box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2); }
+}
+
+.toast-urgent {
+  animation: pulse-urgent 2s infinite !important;
+  background: #fee2e2 !important;
+  color: #991b1b !important;
+  border: 2px solid #ef4444 !important;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ef4444;
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--sidebar-bg);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
