@@ -24,7 +24,7 @@ const Sidebar = ({ activeTab, onNavigate, onLogout, currentUser }) => {
         <div className="logo-icon-wrapper" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           <img src="/logo-s.png" alt="S Logo" style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
         </div>
-        <h1 className="logo-text">HOTEL SHUBHA SAI</h1>
+        <h1 className="logo-text">HOTEL GLITZ</h1>
       </div>
 
       <nav className="nav-container">

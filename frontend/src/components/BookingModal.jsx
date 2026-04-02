@@ -197,7 +197,7 @@ const BookingModal = ({ isOpen, onClose, room, onBook, showToast }) => {
   <div class="proprietor">R. Umesh Reddy<br/><span style="font-weight:500;opacity:0.7">Proprietor</span></div>
   <div class="logo-center">
     <img src="${window.location.origin}/logo-s.png" class="logo-s" alt="Logo" />
-    <div class="hotel-name">Hotel Shubha Sai</div>
+    <div class="hotel-name">Hotel Glitz</div>
     <div class="tagline">Assuring you the best hospitality services</div>
   </div>
   <div class="reception">Reception Desk<br/>+91 99013 03998</div>

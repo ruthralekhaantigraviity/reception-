@@ -84,7 +84,7 @@ const CheckoutModal = ({ isOpen, onClose, room, onConfirmCheckout }) => {
   <div class="proprietor">R. Umesh Reddy<br/><span style="font-weight:500;opacity:0.7">Proprietor</span></div>
   <div class="logo-center">
     <img src="${window.location.origin}/logo-s.png" class="logo-s" alt="Logo" />
-    <div class="hotel-name">Hotel Shubha Sai</div>
+    <div class="hotel-name">Hotel Glitz</div>
     <div class="tagline">Assuring you the best hospitality services</div>
   </div>
   <div class="reception">Reception Desk<br/>+91 99013 03998</div>
@@ -127,7 +127,7 @@ const CheckoutModal = ({ isOpen, onClose, room, onConfirmCheckout }) => {
     Email: hotelshubhasai@gmail.com | Driver: +91 98456 32369
   </div>
 </div>
-<p style="font-size:10px;color:#94a3b8;text-align:center;margin-top:40px">Generated on ${dateStr} · Management, Hotel Shubha Sai</p>
+<p style="font-size:10px;color:#94a3b8;text-align:center;margin-top:40px">Generated on ${dateStr} · Management, Hotel Glitz</p>
 </body></html>`;
     
     const win = window.open('', '_blank');

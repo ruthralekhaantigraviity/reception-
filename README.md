@@ -1,4 +1,4 @@
-# Hotel Shubha Sai — Receptionist Dashboard
+# Hotel Glitz — Receptionist Dashboard
 
 A professional hotel management system for receptionists, built with a clean Frontend/Backend separation.
 
@@ -56,4 +56,4 @@ Opens at: **http://localhost:5000**
 - **Maintenance Tracker** — Log and resolve technical issues
 - **Notification System** — Live urgent checkout alerts
 - **Settings** — Theme toggle (Dark/Light), system reset
-- **Official Branding** — Receipts and letterheads with Hotel Shubha Sai logo
+- **Official Branding** — Receipts and letterheads with Hotel Glitz logo

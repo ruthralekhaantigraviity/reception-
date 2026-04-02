@@ -10,7 +10,7 @@ app.use(express.json());
 
 // ─── Health Check ─────────────────────────────────────────────────────────────
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', message: 'Hotel Shubha Sai API is running.' });
+  res.json({ status: 'ok', message: 'Hotel Glitz API is running.' });
 });
 
 // ─── Rooms ────────────────────────────────────────────────────────────────────
@@ -44,5 +44,5 @@ app.get('/api/notifications', (req, res) => {
 
 // ─── Server Start ─────────────────────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`✅ Hotel Shubha Sai API running on http://localhost:${PORT}`);
+  console.log(`✅ Hotel Glitz API running on http://localhost:${PORT}`);
 });

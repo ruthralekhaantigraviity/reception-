@@ -1,7 +1,7 @@
 {
   "name": "recep-dash-backend",
   "version": "1.0.0",
-  "description": "Hotel Shubha Sai - Receptionist Dashboard Backend API",
+  "description": "Hotel Glitz - Receptionist Dashboard Backend API",
   "main": "server.js",
   "type": "module",
   "scripts": {

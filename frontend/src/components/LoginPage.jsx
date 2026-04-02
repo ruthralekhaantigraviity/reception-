@@ -79,7 +79,7 @@ const LoginPage = ({ onLogin }) => {
             <img src="/logo-s.png" alt="Logo" style={{ width: '42px', height: '42px', objectFit: 'contain' }} />
           </div>
           <div>
-            <div style={{ fontSize: '18px', fontWeight: '900', color: 'white', letterSpacing: '0.04em' }}>HOTEL SHUBHA SAI</div>
+            <div style={{ fontSize: '18px', fontWeight: '900', color: 'white', letterSpacing: '0.04em' }}>HOTEL GLITZ</div>
             <div style={{ fontSize: '11px', fontWeight: '600', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.1em' }}>MANAGEMENT SYSTEM</div>
           </div>
         </div>
@@ -176,7 +176,7 @@ const LoginPage = ({ onLogin }) => {
         </form>
 
         <p style={{ marginTop: '28px', textAlign: 'center', fontSize: '12px', color: '#94a3b8', fontWeight: '600' }}>
-          Hotel Shubha Sai · Bommasandra, Bangalore
+          Hotel Glitz · Bommasandra, Bangalore
         </p>
       </div>
     </div>
