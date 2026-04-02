@@ -1,7 +1,7 @@
 import React from 'react';
 import { Moon, Sun, Bell, X, Settings } from 'lucide-react';
 
-const Header = ({ title, description, onToggleTheme, isDarkMode, onUtilityClick, notificationCount = 0, notifications = [], onNotificationAction }) => {
+const Header = ({ title, description, onToggleTheme, isDarkMode, onUtilityClick, notificationCount = 0, notifications = [], onNotificationAction, currentUser }) => {
   const [isNotifOpen, setIsNotifOpen] = React.useState(false);
 
   return (
@@ -93,8 +93,8 @@ const Header = ({ title, description, onToggleTheme, isDarkMode, onUtilityClick,
 
           <div className="header-profile">
             <div className="header-user-info">
-              <span className="header-user-name">Receptionist</span>
-              <span className="header-user-role">Reception</span>
+              <span className="header-user-name">{currentUser?.name || 'Receptionist'}</span>
+              <span className="header-user-role">{currentUser?.role || 'Reception'}</span>
             </div>
             <div className="header-avatar" style={{ background: 'white', border: '1px solid var(--border-color)', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img src="/logo-s.png" alt="Logo" style={{ width: '80%', height: '80%', objectFit: 'contain' }} />

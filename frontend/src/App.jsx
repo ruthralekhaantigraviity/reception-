@@ -13,6 +13,7 @@ import HistoryModal from './components/HistoryModal';
 import RoomShiftModal from './components/RoomShiftModal';
 import ExtendModal from './components/ExtendModal';
 import SettingsModule from './components/SettingsModule';
+import LoginPage from './components/LoginPage';
 
 const DEFAULT_ROOMS = [
   { id: '1', number: '219', category: 'GENERAL', type: 'GENERAL', status: 'available', capacity: 3, ac: true },
@@ -33,6 +34,21 @@ function App() {
   const [activeTab, setActiveTab] = useState('available-rooms');
   const [toast, setToast] = useState({ show: false, message: '', type: 'success', onClick: null });
   const [isDarkMode, setIsDarkMode] = useState(false);
+
+  // 🔐 Auth state — persisted in localStorage
+  const [currentUser, setCurrentUser] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('hm_session') || 'null'); } catch { return null; }
+  });
+
+  const handleLogin = (user) => setCurrentUser(user);
+
+  const handleLogout = () => {
+    localStorage.removeItem('hm_session');
+    setCurrentUser(null);
+  };
+
+  // 🔑 Show login page if not authenticated
+  if (!currentUser) return <LoginPage onLogin={handleLogin} />;
   
   // 💾 persistence logic
   const [rooms, setRooms] = useState(() => {
@@ -339,7 +355,7 @@ function App() {
 
   return (
     <div style={{ display: 'flex', minHeight: '100vh', width: '100%' }}>
-      <Sidebar activeTab={activeTab} onNavigate={setActiveTab} />
+      <Sidebar activeTab={activeTab} onNavigate={setActiveTab} onLogout={handleLogout} currentUser={currentUser} />
       <main className="main-content" style={{ flex: 1 }}>
         {renderContent()}
       </main>

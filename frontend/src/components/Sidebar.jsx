@@ -8,7 +8,7 @@ import {
   Settings
 } from 'lucide-react';
 
-const Sidebar = ({ activeTab, onNavigate }) => {
+const Sidebar = ({ activeTab, onNavigate, onLogout, currentUser }) => {
   const navItems = [
     { id: 'available-rooms', label: 'Room Dashboard', icon: ListPlus },
     { id: 'room-booking', label: 'New Booking', icon: CalendarCheck },
@@ -43,7 +43,22 @@ const Sidebar = ({ activeTab, onNavigate }) => {
         </ul>
 
         <div className="logout-section">
-          <button className="nav-link logout-btn">
+          {/* User info */}
+          {currentUser && (
+            <div style={{
+              padding: '12px 16px', marginBottom: '8px',
+              background: 'rgba(255,255,255,0.07)', borderRadius: '12px',
+              border: '1px solid rgba(255,255,255,0.1)'
+            }}>
+              <div style={{ fontSize: '12px', fontWeight: '800', color: 'rgba(255,255,255,0.9)' }}>
+                {currentUser.name}
+              </div>
+              <div style={{ fontSize: '11px', fontWeight: '600', color: 'rgba(255,255,255,0.45)', marginTop: '2px' }}>
+                {currentUser.role}
+              </div>
+            </div>
+          )}
+          <button className="nav-link logout-btn" onClick={onLogout}>
             <LogOut className="icon" />
             <span>Logout</span>
           </button>
